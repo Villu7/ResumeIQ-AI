@@ -11,8 +11,6 @@ import {
 } from "react-router";
 
 import type { Route } from "./+types/root";
-import { usePuterStore } from "~/lib/puter";
-import { useEffect } from "react";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
@@ -33,24 +31,21 @@ export const links: LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
-  const { init } = usePuterStore();
-
-  useEffect(() => {
-    init();
-  }, [init]);
-
   return (
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1"
+        />
+
         <Meta />
         <Links />
       </head>
 
       <body>
-        <script src="https://js.puter.com/v2/"></script>
-
         {children}
 
         <ScrollRestoration />
