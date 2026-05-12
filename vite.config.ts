@@ -8,10 +8,11 @@ export default defineConfig({
     reactRouter(),
     tsconfigPaths(),
   ],
+
   resolve: {
     alias: {
       "~": path.resolve(__dirname, "./app"),
     },
   },
-  base: "/ResumeIQ-AI/",
 });
+
